@@ -1,0 +1,40 @@
+import java.util.*;
+
+/**
+ * 실습#2 - MyApp 메인메소드
+ * 
+ * @author (2019315027_최서연, 2019315036_허다희) 
+ * @version (2020.09.28)
+ */
+
+public class MyApp
+{
+    public static void main(String[] args)
+    {
+        MyStack<Integer> s = new MyStack<Integer>();
+        Integer array[] = new Integer[3];
+        int i = 0;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("오늘 날짜를 입력하시오(년/월/일)");
+        String date = sc.next();
+        System.out.println("------ Push ------");
+        StringTokenizer st = new StringTokenizer(date , "/");
+
+        while(st.hasMoreTokens())
+         {
+            array[i] = Integer.parseInt(st.nextToken());
+            i++;
+         }
+        for(i = 0; i<3; i++){
+            s.push(array[i]);
+        }
+        
+        System.out.println("------ Pop ------");
+        for(i = 0; i < 4; i++)
+        {
+          System.out.println(s.pop());
+            
+        }
+    }
+}
