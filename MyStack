@@ -1,0 +1,50 @@
+import java.util.*;
+
+/**
+ * 실습#2 - MyStack<T> 클래스
+ *
+ * @author (2019315027 최서연 2019315036 허다희)
+ * @version (2020.09.28)
+ */
+
+public class MyStack<T> implements Stack<T>
+{
+    private int top;
+    Object[] s;
+    
+    public MyStack()
+    {
+        top = -1;
+        s = new Object[3];
+    }
+    
+    public boolean push(T data)
+    {
+        try
+        {
+          top += 1; 
+          s[top] = data;
+          return true;
+        }
+        catch(ArrayIndexOutOfBoundsException outnumber)
+        {
+            System.out.println("Stack overflow!");
+            return false;
+        }
+    }
+    
+    public T pop()
+    {
+        try
+        { 
+            T result = (T)s[top];
+            top -=1; 
+            return result; 
+        }
+        catch(ArrayIndexOutOfBoundsException outnumber)
+        {
+            System.out.println("Stack underflow!");
+            return null;
+        }
+    }
+}
